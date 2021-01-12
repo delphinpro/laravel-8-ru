@@ -2,7 +2,7 @@
 
 * [Laravel 8 RU](README.md)
 
-## Начало <a id="getting-started"></a>
+## Начало работы <a id="getting-started"></a>
 
 * [Установка](getting-started/installation.md)
 * [Конфигурация](getting-started/configuration.md)
@@ -14,12 +14,17 @@
 
 ---
 
+* [Жизненный цикл](request-lifecycle.md)
 * [Service Container](service-container.md)
+* [Фасады](facades.md)
 
 ## Основы <a id="the-basic"></a>
 
 ---
 
+* [Маршрутизация](routing.md)
+* [Представления](views.md)
+* [Blade шаблоны](blade.md)
 * [Валидация](validation.md)
 
 ## Копаем глубже <a id="digging-deeper"></a>
@@ -27,6 +32,7 @@
 ---
 
 * [Трансляция](translyaciya.md)
+* [Компиляция ассетов \(Mix\)](mix.md)
 * [Локализация](localization.md)
 * [Очереди](queues.md)
 
@@ -40,16 +46,21 @@
 
 ## Eloquent ORM <a id="eloquent"></a>
 
+---
+
+* [Eloquent: Начало работы](eloquent-1.md)
+
 ## Тестирование <a id="testing"></a>
 
 ---
 
-* [Тестирование: быстрый старт](testing-1.md)
+* [Тестирование: начало работы](testing-2.md)
 
 ## Пакеты <a id="packages"></a>
 
 * [Fortify](packages/fortify.md)
 * [Passport](packages/passport.md)
+* [Sail](packages/sail.md)
 * [Sanctum](packages/sanctum.md)
 
 ## API documentation

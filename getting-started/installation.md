@@ -16,125 +16,125 @@ Laravel стремится обеспечить уникальные возмо�
 
 Нам нравится называть Laravel "прогрессивным" фреймворком. Под этим мы подразумеваем, что Laravel растет вместе с вами. Если вы только делаете первые шаги в веб-разработке, обширная библиотека документации, руководств и [видео-уроков](https://laracasts.com/) Laravel поможет вам изучать основы, не перенапрягаясь.
 
-Если вы senior, Laravel предоставляет вам надежные инструменты для [внедрения зависимостей](../service-container.md), [модульного тестирования](../testing-1.md), [очередей](../queues.md), [событий в реальном времени](../translyaciya.md), и многое другое. Laravel тонко настроен для создания профессиональных веб-приложений и готов к обработке корпоративных рабочих нагрузок.
+Если вы senior, Laravel предоставляет вам надежные инструменты для [внедрения зависимостей](../service-container.md), [модульного тестирования](../testing-2.md), [очередей](../queues.md), [событий в реальном времени](../translyaciya.md), и многое другое. Laravel тонко настроен для создания профессиональных веб-приложений и готов к обработке корпоративных рабочих нагрузок.
 
-#### A Scalable Framework
+#### Масштабируемая платформа
 
-Laravel is incredibly scalable. Thanks to the scaling-friendly nature of PHP and Laravel's built-in support for fast, distributed cache systems like Redis, horizontal scaling with Laravel is a breeze. In fact, Laravel applications have been easily scaled to handle hundreds of millions of requests per month.
+Laravel невероятно масштабируемый. Благодаря удобной для масштабирования природе PHP и встроенной в Laravel поддержке быстрых распределенных кэш-систем, таких как Redis, горизонтальное масштабирование с Laravel — это легко. Приложения Laravel легко масштабируются для обработки сотен миллионов запросов в месяц.
 
-Need extreme scaling? Platforms like [Laravel Vapor](https://vapor.laravel.com/) allow you to run your Laravel application at nearly limitless scale on AWS's latest serverless technology.
+Нужен экстремальный масштаб? Такие платформы, как [Laravel Vapor](https://vapor.laravel.com/), позволяют выполнять приложения Laravel в практически неограниченном масштабе на базе новейшей безсерверной технологии AWS.
 
-#### A Community Framework
+#### Сообщество
 
-Laravel combines the best packages in the PHP ecosystem to offer the most robust and developer friendly framework available. In addition, thousands of talented developers from around the world have [contributed to the framework](https://github.com/laravel/framework). Who knows, maybe you'll even become a Laravel contributor.
+Laravel сочетает в себе лучшие пакеты в экосистеме PHP, чтобы предложить наиболее надежный и дружественный к разработчикам фреймворк. Кроме того, тысячи талантливых разработчиков со всего мира внесли свой [вклад в создание этой инфраструктуры](https://github.com/laravel/framework). Кто знает, может быть, вы даже станете участником Laravel.
 
-## Your First Laravel Project
+## Ваш первый проект на Laravel
 
-We want it to be as easy as possible to get started with Laravel. There are a variety of options for developing and running a Laravel project on your own computer. While you may wish to explore these options at a later time, Laravel provides [Sail](https://laravel.com/docs/8.x/sail), a built-in solution for running your Laravel project using [Docker](https://www.docker.com/).
+Мы хотим, чтобы с Laravel было как можно легче начать. Существует множество вариантов разработки и запуска проекта Laravel на вашем компьютере. В то время как вы, возможно, захотите изучить эти опции позже, Laravel предоставляет [Sail](../packages/sail.md), встроенное решение для запуска проекта с использованием [Docker](https://www.docker.com/).
 
-Docker is a tool for running applications and services in small, light-weight "containers" which do not interfere with your local computer's installed software or configuration. This means you don't have to worry about configuring or setting up complicated development tools such as web servers and databases on your personal computer. To get started, you only need to install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+Докер — это инструмент для запуска приложений и сервисов в маленьких, легких "контейнерах", которые не вмешиваются в установленное на локальном компьютере программное обеспечение или конфигурацию. Это означает, что вам не нужно беспокоиться о конфигурации или настройке сложных инструментов разработки, таких как веб-серверы и базы данных на вашем персональном компьютере. Для начала вам нужно лишь установить [Docker Desktop](https://www.docker.com/products/docker-desktop).
 
-Laravel Sail is a light-weight command-line interface for interacting with Laravel's default Docker configuration. Sail provides a great starting point for building a Laravel application using PHP, MySQL, and Redis without requiring prior Docker experience.
+Laravel Sail представляет собой легкий интерфейс командной строки для взаимодействия с настройками Docker по умолчанию. Sail обеспечивает отличную отправную точку для создания приложения Laravel с использованием PHP, MySQL и Redis, не требуя предварительного опыта работы с Docker.
 
-> ![](https://laravel.com/img/callouts/lightbulb.min.svg)
->
-> Already a Docker expert? Don't worry! Everything about Sail can be customized using the `docker-compose.yml` file included with Laravel.
+{% hint style="info" %}
+Уже эксперт по Docker? Не волнуйся! Все в Sail можно настроить с помощью файла `docker-compose.yml`, входящего в комплект поставки Laravel.
+{% endhint %}
 
-### Getting Started On macOS
+### Начало работы на macOS
 
-If you're developing on a Mac and [Docker Desktop](https://www.docker.com/products/docker-desktop) is already installed, you can use a simple terminal command to create a new Laravel project. For example, to create a new Laravel application in a directory named "example-app", you may run the following command in your terminal:
+Если вы разрабатываете на Mac и [Docker Desktop](https://www.docker.com/products/docker-desktop) уже установлен, вы можете использовать простую терминальную команду для создания нового проекта Laravel. Например, чтобы создать новое приложение Laravel в каталоге с названием "example-app", вы можете запустить следующую команду в своем терминале:
 
-```text
+```bash
 curl -s https://laravel.build/example-app | bash
 ```
 
-Of course, you can change "example-app" in this URL to anything you like. The Laravel application's directory will be created within the directory you execute the command from.
+Конечно, вы можете изменить "example-app" в этом URL на что угодно. Каталог приложения Laravel будет создан в каталоге, из которого вы выполняете команду.
 
-After the project has been created, you can navigate to the application directory and start Laravel Sail. Laravel Sail provides a simple command-line interface for interacting with Laravel's default Docker configuration:
+После создания проекта можно перейти в каталог приложения и запустить Laravel Sail. Laravel Sail предоставляет простой интерфейс командной строки для взаимодействия с настройками Docker по умолчанию:
 
-```text
+```bash
 cd example-app
 
 ./vendor/bin/sail up
 ```
 
-The first time you run the Sail `up` command, Sail's application containers will be built on your machine. This could take several minutes. **Don't worry, subsequent attempts to start Sail will be much faster.**
+При первом запуске команды Sail `up` контейнеры приложений Sail будут построены на вашей машине. Это может занять несколько минут. **Не волнуйтесь, последующие попытки запуска Sail будут намного быстрее.**
 
-Once the application's Docker containers have been started, you can access the application in your web browser at: [http://localhost](http://localhost/).
+После запуска контейнеров Docker вы можете получить доступ к приложению в вашем веб-браузере по адресу: [http://localhost](http://localhost).
 
-> ![](https://laravel.com/img/callouts/lightbulb.min.svg)
->
-> To continue learning more about Laravel Sail, review its [complete documentation](https://laravel.com/docs/8.x/sail).
+{% hint style="info" %}
+Чтобы продолжить изучение Laravel Sail, ознакомьтесь с [полной документацией](../packages/sail.md).
+{% endhint %}
 
-### Getting Started On Windows
+### Начало работы на Windows
 
-Before we create a new Laravel application on your Windows machine, make sure to install [Docker Desktop](https://www.docker.com/products/docker-desktop). Next, you should ensure that Windows Subsystem for Linux 2 \(WSL2\) is installed and enabled. WSL allows you to run Linux binary executables natively on Windows 10. Information on how to install and enable WSL2 can be found within Microsoft's [developer environment documentation](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+Прежде чем создавать новое приложение Laravel на машине с Windows, обязательно установите [Docker Desktop](https://www.docker.com/products/docker-desktop). Далее нужно убедиться, что Windows Subsystem for Linux 2 \(WSL2\) установлена и включена. WSL позволяет вам запускать бинарные исполняемые файлы Linux в родном формате на Windows 10. Информацию об установке и включении WSL2 можно найти в [документации Microsoft для разработчиков](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-> ![](https://laravel.com/img/callouts/lightbulb.min.svg)
->
-> After installing and enabling WSL2, you should ensure that Docker Desktop is [configured to use the WSL2 backend](https://docs.docker.com/docker-for-windows/wsl/).
+{% hint style="info" %}
+После установки и включения WSL2 нужно убедиться, что Docker Desktop [настроен на использование бэкэнда WSL2](https://docs.docker.com/docker-for-windows/wsl/).
+{% endhint %}
 
-Next, you are ready to create your first Laravel project. Launch [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab) and begin a new terminal session for your WSL2 Linux operating system. Next, you can use a simple terminal command to create a new Laravel project. For example, to create a new Laravel application in a directory named "example-app", you may run the following command in your terminal:
+Далее, вы готовы создать свой первый проект Laravel. Запустите [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab) и начните новую терминальную сессию для вашей операционной системы WSL2 Linux. Далее вы можете использовать простую терминальную команду для создания нового проекта. Например, чтобы создать приложение в каталоге под названием "example-app", вы можете запустить следующую команду в своем терминале:
 
-```text
+```bash
 curl -s https://laravel.build/example-app | bash
 ```
 
-Of course, you can change "example-app" in this URL to anything you like. The Laravel application's directory will be created within the directory you execute the command from.
+Конечно, вы можете изменить "example-app" в этом URL на что угодно. Каталог приложения Laravel будет создан в каталоге, из которого вы выполняете команду.
 
-After the project has been created, you can navigate to the application directory and start Laravel Sail. Laravel Sail provides a simple command-line interface for interacting with Laravel's default Docker configuration:
+После создания проекта можно перейти в каталог приложений и запустить Laravel Sail. Laravel Sail предоставляет простой интерфейс командной строки для взаимодействия с настройками Docker по умолчанию:
 
-```text
+```bash
 cd example-app
 
 ./vendor/bin/sail up
 ```
 
-The first time you run the Sail `up` command, Sail's application containers will be built on your machine. This could take several minutes. **Don't worry, subsequent attempts to start Sail will be much faster.**
+При первом запуске команды Sail `up` контейнеры приложений Sail будут построены на вашей машине. Это может занять несколько минут. **Не волнуйтесь, последующие попытки запуска Sail будут намного быстрее.**
 
-Once the application's Docker containers have been started, you can access the application in your web browser at: [http://localhost](http://localhost/).
+После запуска контейнеров Docker вы можете получить доступ к приложению в интернет-браузере по адресу: [http://localhost](http://localhost).
 
-> ![](https://laravel.com/img/callouts/lightbulb.min.svg)
->
-> To continue learning more about Laravel Sail, review its [complete documentation](https://laravel.com/docs/8.x/sail).
+{% hint style="info" %}
+Чтобы продолжить изучение Laravel Sail, ознакомьтесь с [полной документацией](../packages/sail.md).
+{% endhint %}
 
-#### Developing Within WSL2
+#### Разработка в WSL2
 
-Of course, you will need to be able to modify the Laravel application files that were created within your WSL2 installation. To accomplish this, we recommend using Microsoft's [Visual Studio Code](https://code.visualstudio.com/) editor and their first-party extension for [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
+Конечно, вам нужно будет иметь возможность изменять файлы приложений Laravel, которые были созданы в процессе установки WSL2. Для этого мы рекомендуем использовать редактор кода Microsoft [Visual Studio Code](https://code.visualstudio.com/) и его расширение для [удаленной разработки](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
 
-Once these tools are installed, you may open any Laravel project by executing the `code .` command from your application's root directory using Windows Terminal.
+После установки этих инструментов вы можете открыть любой проект Laravel, выполнив команду `code .` из корневой директории вашего приложения с помощью терминала Windows.
 
-### Getting Started On Linux
+### Начало работы в Linux
 
-If you're developing on Linux and [Docker](https://www.docker.com/) is already installed, you can use a simple terminal command to create a new Laravel project. For example, to create a new Laravel application in a directory named "example-app", you may run the following command in your terminal:
+Если вы разрабатываете под Linux и [Docker](https://www.docker.com/) уже установлен, вы можете использовать простую терминальную команду для создания нового проекта Laravel. Например, чтобы создать новое приложение Laravel в каталоге с названием "example-app", вы можете запустить следующую команду в своем терминале:
 
-```text
+```bash
 curl -s https://laravel.build/example-app | bash
 ```
 
-Of course, you can change "example-app" in this URL to anything you like. The Laravel application's directory will be created within the directory you execute the command from.
+Конечно, вы можете изменить "example-app" в этом URL на что угодно. Каталог приложения Laravel будет создан в каталоге, из которого вы выполняете команду.
 
-After the project has been created, you can navigate to the application directory and start Laravel Sail. Laravel Sail provides a simple command-line interface for interacting with Laravel's default Docker configuration:
+После создания проекта можно перейти в каталог приложений и запустить Laravel Sail. Laravel Sail предоставляет простой интерфейс командной строки для взаимодействия с настройками Docker по умолчанию:
 
-```text
+```bash
 cd example-app
 
 ./vendor/bin/sail up
 ```
 
-The first time you run the Sail `up` command, Sail's application containers will be built on your machine. This could take several minutes. **Don't worry, subsequent attempts to start Sail will be much faster.**
+При первом запуске команды Sail `up` контейнеры приложений Sail будут построены на вашей машине. Это может занять несколько минут. **Не волнуйтесь, последующие попытки запуска Sail будут намного быстрее.**
 
-Once the application's Docker containers have been started, you can access the application in your web browser at: [http://localhost](http://localhost/).
+После запуска контейнеров Docker вы можете получить доступ к приложению в вашем веб-браузере по адресу: [http://localhost](http://localhost).
 
-> ![](https://laravel.com/img/callouts/lightbulb.min.svg)
->
-> To continue learning more about Laravel Sail, review its [complete documentation](https://laravel.com/docs/8.x/sail).
+{% hint style="info" %}
+Чтобы продолжить изучение Laravel Sail, ознакомьтесь с [полной документацией](../packages/sail.md).
+{% endhint %}
 
-### Installation Via Composer
+### Установка с помощью Composer
 
-If your computer already has PHP and Composer installed, you may create a new Laravel project by using Composer directly. After the application has been created, you may start Laravel's local development server using the Artisan CLI's `serve` command:
+Если на вашем компьютере уже установлены PHP и Composer, вы можете создать новый проект Laravel, используя Composer напрямую. После создания приложения вы можете запустить локальный сервер разработки Laravel, используя команду Artisan CLI `serve`:
 
-```text
+```bash
 composer create-project laravel/laravel example-app
 
 cd example-app
@@ -142,11 +142,11 @@ cd example-app
 php artisan serve
 ```
 
-#### The Laravel Installer
+#### Инсталлятор Laravel
 
-Or, you may install the Laravel Installer as a global Composer dependency:
+Или вы можете установить Laravel Installer как глобальную зависимость Composer:
 
-```text
+```bash
 composer global require laravel/installer
 
 laravel new example-app
@@ -154,55 +154,55 @@ laravel new example-app
 php artisan serve
 ```
 
-Make sure to place Composer's system-wide vendor bin directory in your `$PATH` so the `laravel` executable can be located by your system. This directory exists in different locations based on your operating system; however, some common locations include:
+Убедитесь, что вы прописали каталог с исполняемым файлом Composer в вашем `$PATH`. Этот каталог существует в разных местах в зависимости от вашей операционной системы; однако, некоторые общие места включают в себя:
 
 * macOS: `$HOME/.composer/vendor/bin`
 * Windows: `%USERPROFILE%\AppData\Roaming\Composer\vendor\bin`
-* GNU / Linux Distributions: `$HOME/.config/composer/vendor/bin` or `$HOME/.composer/vendor/bin`
+* GNU / Linux Distributions: `$HOME/.config/composer/vendor/bin` или `$HOME/.composer/vendor/bin`
 
-## Initial Configuration
+## Первоначальная конфигурация
 
-All of the configuration files for the Laravel framework are stored in the `config` directory. Each option is documented, so feel free to look through the files and get familiar with the options available to you.
+Все файлы конфигурации для фреймворка Laravel хранятся в каталоге `config`. Каждый вариант документирован, так что не стесняйтесь просматривать файлы и знакомиться с доступными вам опциями.
 
-Laravel needs almost no additional configuration out of the box. You are free to get started developing! However, you may wish to review the `config/app.php` file and its documentation. It contains several options such as `timezone` and `locale` that you may wish to change according to your application.
+Laravel из коробки почти не нуждается в дополнительной конфигурации. Вы можете начать разработку! Однако, вы можете просмотреть файл `config/app.php` и его документацию. Он содержит несколько вариантов, таких как `timezone` и `local`, которые вы можете изменить в соответствии с вашим приложением.
 
-#### Environment Based Configuration
+#### Конфигурация, основанная на окружении
 
-Since many of Laravel's configuration option values may vary depending on whether your application is running on your local computer or on a production web server, many important configuration values are defined using the `.env` file that exists at the root of your application.
+Так как многие параметры конфигурации Laravel могут отличаться в зависимости от того, запущено ли ваше приложение на локальном компьютере или на производственном веб-сервере, многие важные параметры конфигурации определяются с помощью файла `.env`, который существует в корне вашего приложения.
 
-Your `.env` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. Furthermore, this would be a security risk in the event an intruder gains access to your source control repository, since any sensitive credentials would get exposed.
+Ваш файл `.env` должен быть исключен из системы контроля версий, так как для каждого разработчика/сервера, использующего ваше приложение, может потребоваться своя конфигурация среды. Более того, это будет представлять собой риск для безопасности в случае, если злоумышленник получит доступ к вашему репозиторию, так как любые конфиденциальные учетные данные будут раскрыты.
 
-> ![](https://laravel.com/img/callouts/lightbulb.min.svg)
->
-> For more information about the `.env` file and environment based configuration, check out the full [configuration documentation](https://laravel.com/docs/8.x/configuration#environment-configuration).
+{% hint style="info" %}
+Для получения более подробной информации о конфигурации, основанной на `.env` файле и окружении, ознакомьтесь с полной [документацией по конфигурации](configuration.md#env-config).
+{% endhint %}
 
-## Next Steps
+## Следующие шаги
 
-Now that you have created your Laravel project, you may be wondering what to learn next. First, we strongly recommend becoming familiar with how Laravel works by reading the following documentation:
+Теперь, когда вы создали свой проект Laravel, вы можете задаться вопросом, чему научиться дальше. Во-первых, мы настоятельно рекомендуем ознакомиться с тем, как работает Laravel, прочитав следующую документацию:
 
-* [Request Lifecycle](https://laravel.com/docs/8.x/lifecycle)
-* [Configuration](https://laravel.com/docs/8.x/configuration)
-* [Directory Structure](https://laravel.com/docs/8.x/structure)
-* [Service Container](https://laravel.com/docs/8.x/container)
-* [Facades](https://laravel.com/docs/8.x/facades)
+* [Жизненный цикл запроса](../request-lifecycle.md)
+* [Конфигурация](configuration.md)
+* [Структура директорий](directory-structure.md)
+* [Service Container](../service-container.md)
+* [Фасады](../facades.md)
 
-How you want to use Laravel will also dictate the next steps on your journey. There are a variety of ways to use Laravel, and we'll explore two primary use cases for the framework below.
+То, как вы хотите использовать Laravel, также будет диктовать дальнейшие шаги в вашем пути. Существует множество способов использования Laravel, и мы рассмотрим два основных варианта использования системы.
 
-### Laravel The Full Stack Framework
+### Full Stack платформа
 
-Laravel may serve as a full stack framework. By "full stack" framework we mean that you are going to use Laravel to route requests to your application and render your frontend via [Blade templates](https://laravel.com/docs/8.x/blade) or using a single-page application hybrid technology like [Inertia.js](https://inertiajs.com/). This is the most common way to use the Laravel framework.
+Laravel может использовать как full stack платформа. Под "full stack" мы подразумеваем, что вы собираетесь использовать Laravel для маршрутизации запросов к вашему приложению и визуализации вашего фронтэнда с помощью [шаблонов Blade](../blade.md) или с помощью одностраничной гибридной технологии приложения, такой как [Inertia.js](https://inertiajs.com/). Это наиболее распространенный способ использования фреймворка Laravel.
 
-If this is how you plan to use Laravel, you may want to check out our documentation on [routing](https://laravel.com/docs/8.x/routing), [views](https://laravel.com/docs/8.x/views), or the [Eloquent ORM](https://laravel.com/docs/8.x/eloquent). In addition, you might be interested in learning about community packages like [Livewire](https://laravel-livewire.com/) and [Inertia.js](https://inertiajs.com/). These packages allow you to use Laravel as a full-stack framework while enjoying many of the UI benefits provided by single-page JavaScript applications.
+Если вы планируете использовать Laravel именно так, возможно, вы захотите ознакомиться с нашей документацией по [маршрутизации](../routing.md), [представлениям](../views.md) или [Eloquent ORM](../eloquent-1.md). Кроме того, вам может быть интересно узнать о дополнительных пакетах, таких как [Livewire](https://laravel-livewire.com/) и [Inertia.js](https://inertiajs.com/). Эти пакеты позволяют вам использовать Laravel в качестве фреймворка с полным стеком и в то же время пользоваться многими преимуществами пользовательского интерфейса, предоставляемыми одностраничными приложениями на JavaScript.
 
-If you are using Laravel as a full stack framework, we also strongly encourage you to learn how to compile your application's CSS and JavaScript using [Laravel Mix](https://laravel.com/docs/8.x/mix).
+Если вы используете Laravel в качестве фреймворка с полным стеком, мы также настоятельно рекомендуем вам научиться компилировать CSS и JavaScript вашего приложения с помощью [Laravel Mix](../mix.md).
 
-> ![](https://laravel.com/img/callouts/lightbulb.min.svg)
->
-> If you want to get a head start building your application, check out one of our official [application starter kits](https://laravel.com/docs/8.x/starter-kits).
+{% hint style="info" %}
+Если вы хотите ускорить процесс создания приложения, ознакомьтесь с одним из наших официальных [стартовых комплектов](starter-kits.md).
+{% endhint %}
 
-### Laravel The API Backend
+### API Backend
 
-Laravel may also serve as an API backend to a JavaScript single-page application or mobile application. For example, you might use Laravel as an API backend for your [Next.js](https://nextjs.org/) application. In this context, you may use Laravel to provide [authentication](https://laravel.com/docs/8.x/sanctum) and data storage / retrieval for your application, while also taking advantage of Laravel's powerful services such as queues, emails, notifications, and more.
+Laravel также может служить API бэкэндом к одностраничному приложению JavaScript или мобильному приложению. Например, вы можете использовать Laravel в качестве бэкэнда API для вашего приложения [Next.js](https://nextjs.org/). В этом контексте вы можете использовать Laravel для обеспечения [аутентификации](../packages/sanctum.md) и хранения/поиска данных для вашего приложения, одновременно используя преимущества мощных сервисов Laravel, таких как очереди, электронная почта, уведомления и многое другое.
 
-If this is how you plan to use Laravel, you may want to check out our documentation on [routing](https://laravel.com/docs/8.x/routing), [Laravel Sanctum](https://laravel.com/docs/8.x/sanctum), and the [Eloquent ORM](https://laravel.com/docs/8.x/eloquent).
+Если вы планируете использовать Laravel таким образом, вы можете ознакомиться с нашей документацией по [маршрутизации](../routing.md), [Laravel Sanctum](../packages/sanctum.md) и [Eloquent ORM](../eloquent-1.md).
 
