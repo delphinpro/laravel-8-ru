@@ -7,7 +7,7 @@
 * [Установка](getting-started/installation.md)
 * [Конфигурация](getting-started/configuration.md)
 * [Структура директорий](getting-started/directory-structure.md)
-* [Стартовый набор](getting-started/starter-kits.md)
+* [Стартовые пакеты](getting-started/starter-kits.md)
 * [Развертывание](getting-started/deployment.md)
 
 ## Концепции архитектуры <a id="architecture-concepts"></a>
@@ -49,6 +49,10 @@
 * [Сброс пароля](security/password-reset.md)
 
 ## База данных <a id="database"></a>
+
+---
+
+* [Миграции](migrations.md)
 
 ## Eloquent ORM <a id="eloquent"></a>
 
