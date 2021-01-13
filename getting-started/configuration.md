@@ -144,41 +144,41 @@ https://example.com/1630542a-246b-4b66-afa1-dd72a4c43515
 
 При доступе к этому скрытому маршруту вы будете перенаправлены на `/` маршрут. После того, как cookie-файл будет выдан вашему браузеру, вы сможете просматривать приложение в обычном режиме, как если бы оно не находилось в режиме обслуживания.
 
-### **Pre-Rendering The Maintenance Mode View**
+### Пререндер страницы режима обслуживания
 
-If you utilize the `php artisan down` command during deployment, your users may still occasionally encounter errors if they access the application while your Composer dependencies or other infrastructure components are updating. This occurs because a significant part of the Laravel framework must boot in order to determine your application is in maintenance mode and render the maintenance mode view using the templating engine.
+Если вы используете команду `php artisan down` во время деплоя, ваши пользователи все еще могут иногда сталкиваться с ошибками, если они получают доступ к приложению во время обновления зависимостей Composer или других компонентов инфраструктуры. Это происходит потому, что значительная часть инфраструктуры Laravel должна загрузиться, чтобы определить, что ваше приложение находится в режиме обслуживания и отобразить вид режима обслуживания с помощью шаблонизатора.
 
-For this reason, Laravel allows you to pre-render a maintenance mode view that will be returned at the very beginning of the request cycle. This view is rendered before any of your application's dependencies have loaded. You may pre-render a template of your choice using the `down` command's `render` option:
+По этой причине Laravel позволяет предварительно запросить вид режима обслуживания, который будет возвращен в самом начале цикла запроса. Этот вид отображается до того, как будет загружена какая-либо из зависимостей вашего приложения. Вы можете предварительно отрисовать шаблон по вашему выбору, используя опцию `render` команды `down`:
 
 ```bash
 php artisan down --render="errors::503"
 ```
 
-### **Redirecting Maintenance Mode Requests**
+### Перенаправления в режиме обслуживания
 
-While in maintenance mode, Laravel will display the maintenance mode view for all application URLs the user attempts to access. If you wish, you may instruct Laravel to redirect all requests to a specific URL. This may be accomplished using the `redirect` option. For example, you may wish to redirect all requests to the `/` URI:
+Находясь в режиме обслуживания, Laravel будет отображать вид режима обслуживания для всех URL-адресов приложений, к которым пользователь пытается получить доступ. При желании вы можете поручить Laravel перенаправить все запросы на определенный URL. Это может быть выполнено с помощью опции `redirect`. Например, вы можете перенаправить все запросы на URI `/`:
 
 ```bash
 php artisan down --redirect=/
 ```
 
-### **Disabling Maintenance Mode**
+### **Отключение режима обслуживания**
 
-To disable maintenance mode, use the `up` command:
+Чтобы отключить режим обслуживания, используйте команду `up`:
 
 ```bash
 php artisan up
 ```
 
-> ![](https://laravel.com/img/callouts/lightbulb.min.svg)
->
-> You may customize the default maintenance mode template by defining your own template at `resources/views/errors/503.blade.php`.
+{% hint style="info" %}
+Вы можете настроить шаблон режима обслуживания по умолчанию, определив свой собственный шаблон в файле `resource/views/errrors/503.blade.php`.
+{% endhint %}
 
-### **Maintenance Mode & Queues**
+### **Режим обслуживания и очереди**
 
-While your application is in maintenance mode, no [queued jobs](https://laravel.com/docs/8.x/queues) will be handled. The jobs will continue to be handled as normal once the application is out of maintenance mode.
+Пока ваше приложение находится в режиме обслуживания, не будут обрабатываться задания, стоящие в [очереди](../queues.md). Задания начнут обрабатываться в обычном режиме, как только приложение выйдет из режима обслуживания.
 
-### **Alternatives To Maintenance Mode**
+### **Альтернативы режима обслуживания**
 
-Since maintenance mode requires your application to have several seconds of downtime, consider alternatives like [Laravel Vapor](https://vapor.laravel.com/) and [Envoyer](https://envoyer.io/) to accomplish zero-downtime deployment with Laravel.
+Поскольку режим обслуживания требует от вашего приложения нескольких секунд простоя, рассмотрите альтернативные варианты, такие как [Laravel Vapor](https://vapor.laravel.com/) и [Envoyer](https://envoyer.io/), для достижения нулевого простоя развертывания с Laravel.
 

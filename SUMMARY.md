@@ -8,14 +8,15 @@
 * [Конфигурация](getting-started/configuration.md)
 * [Структура директорий](getting-started/directory-structure.md)
 * [Стартовый набор](getting-started/starter-kits.md)
-* [Deployment](getting-started/deployment.md)
+* [Развертывание](getting-started/deployment.md)
 
 ## Концепции архитектуры <a id="architecture-concepts"></a>
 
 ---
 
 * [Жизненный цикл](request-lifecycle.md)
-* [Service Container](service-container.md)
+* [Service Container](container.md)
+* [Service Providers](providers.md)
 * [Фасады](facades.md)
 
 ## Основы <a id="the-basic"></a>
@@ -33,12 +34,17 @@
 
 * [Трансляция](translyaciya.md)
 * [Компиляция ассетов \(Mix\)](mix.md)
+* [События](events.md)
 * [Локализация](localization.md)
+* [Почта](mail.md)
+* [Уведомления](notifications.md)
 * [Очереди](queues.md)
+* [Планировщик](scheduling.md)
 
 ## Безопасность <a id="security"></a>
 
 * [Аутентификация](security/authentication.md)
+* [Авторизация](security/authorization.md)
 * [Подтверждение Email](security/email-verification.md)
 * [Сброс пароля](security/password-reset.md)
 
