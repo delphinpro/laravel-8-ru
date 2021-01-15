@@ -240,9 +240,9 @@ public function toMail($notifiable)
 При отправке почтовых уведомлений обязательно установите параметр `name` в конфигурационном файле `config/app.php`. Это значение будет использоваться в заголовке и нижнем колонтитуле ваших почтовых уведомлений.
 {% endhint %}
 
-#### **Other Mail Notification Formatting Options**
+#### Другие опции форматирования почтовых уведомлений
 
-Instead of defining the "lines" of text in the notification class, you may use the `view` method to specify a custom template that should be used to render the notification email:
+Вместо того, чтобы определять "строки" текста в классе уведомлений, можно использовать метод `view` для указания пользовательского шаблона, который должен использоваться для отображения письма-уведомления:
 
 ```php
 /**
@@ -259,7 +259,7 @@ public function toMail($notifiable)
 }
 ```
 
-You may specify a plain-text view for the mail message by passing the view name as the second element of an array that is given to the `view` method:
+Вы можете указать обычный текстовый вид для почтового сообщения, передавая имя представления как второй элемент массива, который передается методу `view`:
 
 ```php
 /**
@@ -277,7 +277,7 @@ public function toMail($notifiable)
 }
 ```
 
-In addition, you may return a full [mailable object](https://laravel.com/docs/8.x/mail) from the `toMail` method:
+Кроме того, вы можете вернуть полный [почтовый объект](mail.md) из метода `toMail`:
 
 ```php
 use App\Mail\InvoicePaid as InvoicePaidMailable;
@@ -295,9 +295,9 @@ public function toMail($notifiable)
 }
 ```
 
-#### **Error Messages**
+#### **Сообщения об ошибках**
 
-Some notifications inform users of errors, such as a failed invoice payment. You may indicate that a mail message is regarding an error by calling the `error` method when building your message. When using the `error` method on a mail message, the call to action button will be red instead of black:
+Некоторые уведомления информируют пользователей об ошибках, например, о неудачной оплате счета-фактуры. Вы можете указать, что почтовое сообщение касается ошибки, вызвав метод `error` при построении сообщения. При использовании метода `error` в почтовом сообщении кнопка действия будет не черной, а красной:
 
 ```php
 /**
@@ -315,9 +315,9 @@ public function toMail($notifiable)
 }
 ```
 
-### Customizing The Sender
+### Настройка отправителя
 
-By default, the email's sender / from address is defined in the `config/mail.php` configuration file. However, you may specify the from address for a specific notification using the `from` method:
+По умолчанию, отправитель письма определяется в конфигурационном файле `config/mail.php`. Однако, вы можете указать адрес _from_ для отдельного уведомления, используя метод `from`:
 
 ```php
 /**
@@ -334,9 +334,9 @@ public function toMail($notifiable)
 }
 ```
 
-### Customizing The Recipient
+### Настройка получателя
 
-When sending notifications via the `mail` channel, the notification system will automatically look for an `email` property on your notifiable entity. You may customize which email address is used to deliver the notification by defining a `routeNotificationForMail` method on the notifiable entity:
+При отправке уведомлений по `mail` каналу, система уведомлений будет автоматически искать свойство `email` в вашем уведомляемом объекте. Вы можете настроить, какой электронный адрес используется для доставки уведомления, определив метод `routeNotificationForMail` в уведомляемом объекте:
 
 ```php
 <?php
@@ -367,9 +367,9 @@ class User extends Authenticatable
 }
 ```
 
-### Customizing The Subject
+### Настройка темы сообщения
 
-By default, the email's subject is the class name of the notification formatted to "Title Case". So, if your notification class is named `InvoicePaid`, the email's subject will be `Invoice Paid`. If you would like to specify an different subject for the message, you may call the `subject` method when building your message:
+По умолчанию темой письма является имя класса уведомления, отформатированное в "Title Case". Таким образом, если ваш класс уведомления называется `InvoicePaid`, то темой письма будет `Invoice Paid`. Если вы хотите задать для сообщения другую тему, то можете вызвать метод `subject` при построении сообщения:
 
 ```php
 /**
@@ -386,9 +386,9 @@ public function toMail($notifiable)
 }
 ```
 
-### Customizing The Mailer
+### Настройка почтового сервера
 
-By default, the email notification will be sent using the default mailer defined in the `config/mail.php` configuration file. However, you may specify a different mailer at runtime by calling the `mailer` method when building your message:
+По умолчанию, уведомление по электронной почте будет отправлено с помощью почтового сервера, определенного в конфигурационном файле `config/mail.php`. Однако, вы можете указать другой почтовый сервер во время выполнения, вызвав метод `mailer` при создании сообщения:
 
 ```php
 /**
@@ -405,17 +405,17 @@ public function toMail($notifiable)
 }
 ```
 
-### Customizing The Templates
+### Настройка шаблонов
 
-You can modify the HTML and plain-text template used by mail notifications by publishing the notification package's resources. After running this command, the mail notification templates will be located in the `resources/views/vendor/notifications` directory:
+Вы можете изменить HTML и обычный текстовый шаблон, используемый в почтовых уведомлениях, опубликовав ресурсы пакета уведомлений. После выполнения этой команды шаблоны почтовых уведомлений будут расположены в каталоге `resources/views/vendor/notifications`:
 
 ```bash
 php artisan vendor:publish --tag=laravel-notifications
 ```
 
-### Attachments
+### Вложения
 
-To add attachments to an email notification, use the `attach` method while building your message. The `attach` method accepts the absolute path to the file as its first argument:
+Чтобы добавлять вложения к почтовому уведомлению, используйте метод `attach` при создании сообщения. В качестве первого аргумента метод `attach` принимает абсолютный путь к файлу:
 
 ```php
 /**
@@ -432,7 +432,7 @@ public function toMail($notifiable)
 }
 ```
 
-When attaching files to a message, you may also specify the display name and / or MIME type by passing an `array` as the second argument to the `attach` method:
+При прикреплении файлов к сообщению, вы также можете указать отображаемое имя и/или MIME тип, передавая массив параметров в качестве второго аргумента в метод `attach`:
 
 ```php
 /**
@@ -452,7 +452,7 @@ public function toMail($notifiable)
 }
 ```
 
-Unlike attaching files in mailable objects, you may not attach a file directly from a storage disk using `attachFromStorage`. You should rather use the `attach` method with an absolute path to the file on the storage disk. Alternatively, you could return a [mailable](https://laravel.com/docs/8.x/mail#generating-mailables) from the `toMail` method:
+В отличие от прикрепления файлов в почтовых объектах, вы не можете прикреплять файл непосредственно с диска хранения с помощью `attachFromStorage`. Лучше использовать метод `attach` с абсолютным путем к файлу на диске хранилища. В качестве альтернативы можно вернуть [почтовый объект](mail.md) из метода `toMail`:
 
 ```php
 use App\Mail\InvoicePaid as InvoicePaidMailable;
@@ -473,7 +473,7 @@ public function toMail($notifiable)
 
 #### **Raw Data Attachments**
 
-The `attachData` method may be used to attach a raw string of bytes as an attachment. When calling the `attachData` method, you should provide the filename that should be assigned to the attachment:
+Метод `attachData` может быть использован для прикрепления необработанной строки байтов в качестве вложения. При вызове метода `attachData` необходимо указать имя файла, который будет присвоен вложению:
 
 ```php
 /**
@@ -492,9 +492,9 @@ public function toMail($notifiable)
 }
 ```
 
-### Previewing Mail Notifications
+### Предпросмотр почтовых уведомлений
 
-When designing a mail notification template, it is convenient to quickly preview the rendered mail message in your browser like a typical Blade template. For this reason, Laravel allows you to return any mail message generated by a mail notification directly from a route closure or controller. When a `MailMessage` is returned, it will be rendered and displayed in the browser, allowing you to quickly preview its design without needing to send it to an actual email address:
+При проектировании шаблона почтовых уведомлений удобно быстро просмотреть отображенное почтовое сообщение в браузере, как обычный шаблон Blade. По этой причине Laravel позволяет вам возвращать любое почтовое сообщение, сгенерированное почтовым уведомлением, непосредственно из маршрута или контроллера. Когда `MailMessage` возвращается, оно выводится и отображается в браузере, позволяя вам быстро просмотреть его дизайн без необходимости отправлять его на фактический адрес электронной почты:
 
 ```php
 use App\Models\Invoice;
@@ -508,19 +508,19 @@ Route::get('/notification', function () {
 });
 ```
 
-## Markdown Mail Notifications
+## Почтовые уведомления в формате Markdown
 
-Markdown mail notifications allow you to take advantage of the pre-built templates of mail notifications, while giving you more freedom to write longer, customized messages. Since the messages are written in Markdown, Laravel is able to render beautiful, responsive HTML templates for the messages while also automatically generating a plain-text counterpart.
+Почтовые уведомления в формате Markdown позволяют вам воспользоваться предварительно созданными шаблонами, давая при этом больше свободы в написании более длинных, настраиваемых сообщений. Так как сообщения написаны в Markdown, Laravel может визуализировать красивые, отзывчивые HTML шаблоны для сообщений, одновременно автоматически генерируя контрагент в виде простого текста.
 
-### Generating The Message
+### Генерация сообщения
 
-To generate a notification with a corresponding Markdown template, you may use the `--markdown` option of the `make:notification` Artisan command:
+Для генерации уведомления с соответствующим шаблоном Markdown можно воспользоваться опцией `--markdown` команды `make:notification`:
 
 ```bash
 php artisan make:notification InvoicePaid --markdown=mail.invoice.paid
 ```
 
-Like all other mail notifications, notifications that use Markdown templates should define a `toMail` method on their notification class. However, instead of using the `line` and `action` methods to construct the notification, use the `markdown` method to specify the name of the Markdown template that should be used. An array of data you wish to make available to the template may be passed as the method's second argument:
+Как и все остальные почтовые уведомления, уведомления, использующие шаблоны Markdown, должны определять метод `toMail` в своем классе уведомлений. Однако, вместо того, чтобы использовать методы `line` и `action` для построения уведомления, используйте метод `markdown` для указания имени шаблона Markdown, который должен быть использован. В качестве второго аргумента метода может быть передан массив данных, который вы хотите сделать доступным для шаблона:
 
 ```php
 /**
@@ -539,9 +539,9 @@ public function toMail($notifiable)
 }
 ```
 
-### Writing The Message
+### Написание сообщения
 
-Markdown mail notifications use a combination of Blade components and Markdown syntax which allow you to easily construct notifications while leveraging Laravel's pre-crafted notification components:
+Почтовые уведомления Markdown используют комбинацию компонентов Blade и синтаксис Markdown, что позволяет легко создавать уведомления, используя предварительно разработанные Laravel компоненты уведомлений:
 
 ```markup
 @component('mail::message')
@@ -560,7 +560,7 @@ Thanks,<br>
 
 #### **Button Component**
 
-The button component renders a centered button link. The component accepts two arguments, a `url` and an optional `color`. Supported colors are `primary`, `green`, and `red`. You may add as many button components to a notification as you wish:
+Компонент кнопки отображает центрированную кнопку с ссылкой. Компонент принимает два аргумента, `url` и необязательный `color`. Поддерживаемые цвета: `primary`, `green` и `red`. Вы можете добавить в уведомление столько компонентов кнопок, сколько пожелаете:
 
 ```markup
 @component('mail::button', ['url' => $url, 'color' => 'green'])
@@ -570,7 +570,7 @@ View Invoice
 
 #### **Panel Component**
 
-The panel component renders the given block of text in a panel that has a slightly different background color than the rest of the notification. This allows you to draw attention to a given block of text:
+Компонент панели отображает заданный блок текста на панели, цвет фона которой немного отличается от цвета фона всего остального уведомления. Это позволяет привлечь внимание к заданному блоку текста:
 
 ```markup
 @component('mail::panel')
@@ -580,7 +580,7 @@ This is the panel content.
 
 #### **Table Component**
 
-The table component allows you to transform a Markdown table into an HTML table. The component accepts the Markdown table as its content. Table column alignment is supported using the default Markdown table alignment syntax:
+Компонент таблицы позволяет преобразовать таблицу Markdown в HTML-таблицу. Компонент принимает Markdown таблицу в качестве ее содержимого. Выравнивание столбцов таблицы поддерживается с использованием стандартного синтаксиса выравнивания Markdown таблиц:
 
 ```markup
 @component('mail::table')
@@ -591,23 +591,23 @@ The table component allows you to transform a Markdown table into an HTML table.
 @endcomponent
 ```
 
-### Customizing The Components
+### Настройка компонентов
 
-You may export all of the Markdown notification components to your own application for customization. To export the components, use the `vendor:publish` Artisan command to publish the `laravel-mail` asset tag:
+Вы можете экспортировать все компоненты уведомления Markdown в ваше собственное приложение для настройки. Для экспорта компонентов воспользуйтесь командой `vendor:publish`:
 
 ```bash
 php artisan vendor:publish --tag=laravel-mail
 ```
 
-This command will publish the Markdown mail components to the `resources/views/vendor/mail` directory. The `mail` directory will contain an `html` and a `text` directory, each containing their respective representations of every available component. You are free to customize these components however you like.
+Эта команда опубликует почтовые компоненты Markdown в каталоге `resources/views/vendor/mail`. Директория `mail` будет содержать каталог `html` и `text`, каждый из которых будет содержать свои соответствующие представления каждого доступного компонента. Вы можете настроить эти компоненты как угодно.
 
-#### **Customizing The CSS**
+#### Настройка CSS
 
-After exporting the components, the `resources/views/vendor/mail/html/themes` directory will contain a `default.css` file. You may customize the CSS in this file and your styles will automatically be in-lined within the HTML representations of your Markdown notifications.
+После экспорта компонентов каталог `resources/views/vendor/mail/html/themes` будет содержать файл `default.css`. Вы можете настроить CSS в этом файле, и ваши стили будут автоматически встроены в HTML представление ваших уведомлений Markdown.
 
-If you would like to build an entirely new theme for Laravel's Markdown components, you may place a CSS file within the `html/themes` directory. After naming and saving your CSS file, update the `theme` option of the `mail` configuration file to match the name of your new theme.
+Если вы хотите создать совершенно новую тему для компонентов Laravel's Markdown, вы можете поместить CSS-файл в каталог `html/themes`. После именования и сохранения CSS-файла обновите опцию `theme` в файле конфигурации `mail`, чтобы она соответствовала названию вашей новой темы.
 
-To customize the theme for an individual notification, you may call the `theme` method while building the notification's mail message. The `theme` method accepts the name of the theme that should be used when sending the notification:
+Чтобы настроить тему для отдельного уведомления, можно вызвать метод `theme` во время построения почтового сообщения. Метод `theme` принимает имя темы, которое будет использоваться при отправке уведомления:
 
 ```php
 /**
