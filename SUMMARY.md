@@ -35,6 +35,7 @@
 * [Трансляция](translyaciya.md)
 * [Компиляция ассетов \(Mix\)](mix.md)
 * [События](events.md)
+* [Файловое хранилище](filesystem.md)
 * [Локализация](localization.md)
 * [Почта](mail.md)
 * [Уведомления](notifications.md)

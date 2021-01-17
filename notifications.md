@@ -201,7 +201,7 @@ Notification::route('mail', 'taylor@example.com')
             ->notify(new InvoicePaid($invoice));
 ```
 
-## Почтовые уведомления
+## Почтовые уведомления <a id="mail-notifications"></a>
 
 ### Форматирование почтовых сообщений
 
