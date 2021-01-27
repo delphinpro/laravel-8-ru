@@ -482,9 +482,9 @@ public function build()
 }
 ```
 
-### Writing Markdown Messages
+### Написание Markdown сообщений
 
-Markdown mailables use a combination of Blade components and Markdown syntax which allow you to easily construct mail messages while leveraging Laravel's pre-built email UI components:
+Письма Markdown используют комбинацию компонентов Blade и синтаксис Markdown, что позволяет легко создавать почтовые сообщения, используя предварительно встроенные компоненты почтового пользовательского интерфейса Laravel:
 
 ```markup
 @component('mail::message')
@@ -501,13 +501,13 @@ Thanks,<br>
 @endcomponent
 ```
 
-> ![](https://laravel.com/img/callouts/lightbulb.min.svg)
->
-> Do not use excess indentation when writing Markdown emails. Per Markdown standards, Markdown parsers will render indented content as code blocks.
+{% hint style="info" %}
+Не используйте лишние отступы при записи писем Markdown. В соответствии со стандартами Markdown парсеры Markdown будут отображать содержимое с отступами в виде блоков кода.
+{% endhint %}
 
 #### **Button Component**
 
-The button component renders a centered button link. The component accepts two arguments, a `url` and an optional `color`. Supported colors are `primary`, `success`, and `error`. You may add as many button components to a message as you wish:
+Компонент `button` создает центрированную кнопку-ссылку. Компонент принимает два аргумента, `url` и необязательный `color`. Поддерживаемые цвета — `primary`, `success` и `error`. Вы можете добавить в сообщение столько компонентов кнопок, сколько пожелаете:
 
 ```markup
 @component('mail::button', ['url' => $url, 'color' => 'success'])
@@ -517,7 +517,7 @@ View Order
 
 #### **Panel Component**
 
-The panel component renders the given block of text in a panel that has a slightly different background color than the rest of the message. This allows you to draw attention to a given block of text:
+Компонент панели отображает заданный блок текста на панели, цвет фона которой немного отличается от цвета остальной части сообщения. Это позволяет привлечь внимание к заданному блоку текста:
 
 ```markup
 @component('mail::panel')
@@ -527,7 +527,7 @@ This is the panel content.
 
 #### **Table Component**
 
-The table component allows you to transform a Markdown table into an HTML table. The component accepts the Markdown table as its content. Table column alignment is supported using the default Markdown table alignment syntax:
+Компонент таблицы позволяет преобразовать таблицу Markdown в HTML-таблицу. Компонент принимает Markdown table в качестве содержимого. Выравнивание столбцов таблицы поддерживается синтаксисом выравнивания по умолчанию:
 
 ```markup
 @component('mail::table')
@@ -538,27 +538,27 @@ The table component allows you to transform a Markdown table into an HTML table.
 @endcomponent
 ```
 
-### Customizing The Components
+### Настройка компонентов
 
-You may export all of the Markdown mail components to your own application for customization. To export the components, use the `vendor:publish` Artisan command to publish the `laravel-mail` asset tag:
+Вы можете экспортировать все компоненты почты Markdown в ваше собственное приложение для настройки. Для экспорта компонентов воспользуйтесь командой `vendor:publish`, чтобы опубликовать тег ресурсов `laravel-mail`:
 
 ```text
 php artisan vendor:publish --tag=laravel-mail
 ```
 
-This command will publish the Markdown mail components to the `resources/views/vendor/mail` directory. The `mail` directory will contain an `html` and a `text` directory, each containing their respective representations of every available component. You are free to customize these components however you like.
+Эта команда опубликует почтовые компоненты Markdown в каталоге `resources/views/vendor/mail`. Каталог `mail` будет содержать подкаталоги `html` и `text`, каждый из которых содержит соответствующие представления каждого доступного компонента. Вы можете настроить эти компоненты как угодно.
 
-#### **Customizing The CSS**
+#### **Настройка CSS**
 
-After exporting the components, the `resources/views/vendor/mail/html/themes` directory will contain a `default.css` file. You may customize the CSS in this file and your styles will automatically be converted to inline CSS styles within the HTML representations of your Markdown mail messages.
+После экспорта компонентов каталог `resources/views/vendor/mail/html/themes` будет содержать файл `default.css`. Вы можете настроить CSS в этом файле, и ваши стили будут автоматически преобразованы в inline CSS в HTML представлениях ваших почтовых сообщений Markdown.
 
-If you would like to build an entirely new theme for Laravel's Markdown components, you may place a CSS file within the `html/themes` directory. After naming and saving your CSS file, update the `theme` option of your application's `config/mail.php` configuration file to match the name of your new theme.
+Если вы хотите создать совершенно новую тему для компонентов Laravel's Markdown, то можете поместить CSS-файл в каталог `html/themes`. После определения имени и сохранения CSS-файла обновите параметр `theme` конфигурационного файла `config/mail.php` приложения, чтобы он совпал с именем вашей новой темы.
 
-To customize the theme for an individual mailable, you may set the `$theme` property of the mailable class to the name of the theme that should be used when sending that mailable.
+Чтобы настроить тему для отдельного почтового класса, вы можете установить свойство `$theme` класса mailable в соответствие с именем темы, которая будет использоваться при отправке этого почтового класса.
 
-## Sending Mail
+## Отправка почты
 
-To send a message, use the `to` method on the `Mail` [facade](https://laravel.com/docs/8.x/facades). The `to` method accepts an email address, a user instance, or a collection of users. If you pass an object or collection of objects, the mailer will automatically use their `email` and `name` properties when determining the email's recipients, so make sure these attributes are available on your objects. Once you have specified your recipients, you may pass an instance of your mailable class to the `send` method:
+Чтобы отправить сообщение, используйте метод `to` на [фасаде](facades.md) `Mail`. Метод `to` принимает адрес электронной почты, экземпляр пользователя или коллекцию пользователей. Если вы передаете объект или коллекцию объектов, почтовый агент автоматически использует их свойства `email` и `name` при определении получателей электронной почты, поэтому убедитесь, что эти атрибуты доступны в ваших объектах. После того, как вы указали получателей, можете передать экземпляр своего почтового класса в метод `send`:
 
 ```php
 <?php
@@ -590,7 +590,7 @@ class OrderShipmentController extends Controller
 }
 ```
 
-You are not limited to just specifying the "to" recipients when sending a message. You are free to set "to", "cc", and "bcc" recipients by chaining their respective methods together:
+Вы не ограничиваетесь только указанием получателей "кому" при отправке сообщения. Вы можете установить получателей "to", "cc" и "bcc", связав их соответствующие методы вместе:
 
 ```php
 Mail::to($request->user())
