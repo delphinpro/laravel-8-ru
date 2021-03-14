@@ -60,6 +60,7 @@
 ---
 
 * [Eloquent: Начало работы](eloquent-1.md)
+* [Отношения](relationships.md)
 
 ## Тестирование <a id="testing"></a>
 
