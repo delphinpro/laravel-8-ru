@@ -7,14 +7,15 @@
 * Один к Одному
 * Один ко Многим
 * Многие ко Многим
-* Has One Through
-* Has Many Through
-* One To One \(Polymorphic\)
-* One To Many \(Polymorphic\)
-* Many To Many \(Polymorphic\)
+* Один через Отношение
+* Многие через Отношение
+* Один к Одному \(Полиморфное\)
+* Один ко Многим \(Полиморфное\)
+* Многие ко Многим \(Полиморфное\)
 
 ## Определение отношений
 
+Отношения Eloquent определяются как методы на классах модели Eloquent. Так как отношения также служат [построителями запросов](queries.md), определение отношений как методов обеспечивает возможность создания цепочек методов и запросов. Например, мы можем связать дополнительные ограничения на запросы в этом соотношении `постов`:
 Eloquent relationships are defined as methods on your Eloquent model classes. Since relationships also serve as powerful [query builders](https://laravel.com/docs/8.x/queries), defining relationships as methods provides powerful method chaining and querying capabilities. For example, we may chain additional query constraints on this `posts` relationship:
 
 ```php
